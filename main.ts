@@ -1,4 +1,4 @@
-/*  *//*
+/* 
     cas: je doba v sekundách, po kterou trouba
     odebírala uvedený příkon
     spotreba: je kolik energie by bylo spotřebováno,
@@ -33,8 +33,8 @@ for (const peceme of data){
     pocetmereni += 1
 }
 
-prumernaspotreba = prumernaspotreba/pocetmereni*cas/3600
-stalo = prumernaspotreba*cena
+prumernaspotreba = prumernaspotreba / pocetmereni * cas / 3600
+stalo = prumernaspotreba * cena * cas / 3600
 cas = Math.roundWithPrecision(cas/60, 2)
 
 console.log("Průměrná spotřeba je "+Math.roundWithPrecision(prumernaspotreba, 2)+" kWh")
