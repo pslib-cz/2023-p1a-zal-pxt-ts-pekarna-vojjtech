@@ -1,4 +1,4 @@
-/*
+/*  *//*
     cas: je doba v sekundách, po kterou trouba
     odebírala uvedený příkon
     spotreba: je kolik energie by bylo spotřebováno,
@@ -21,9 +21,22 @@ let data: Array<Odber> = [
     { cas: 60, spotreba: 0 },
     { cas: 800, spotreba: 1500 },
 ]
+let cas:number = 0
+let stalo:number = 0
+let prumernaspotreba:number = 0
+let pocetmereni:number = 0
+
 
 for (const peceme of data){
-    console.logValue("čas: ", peceme.cas);
-    console.logValue("spotřeba: ", peceme.spotreba);
-    console.logValue("spotřebováno: ", peceme.spotreba / 3600 * peceme.cas);
+    cas += peceme.cas
+    prumernaspotreba += peceme.spotreba/1000
+    pocetmereni += 1
 }
+
+prumernaspotreba = prumernaspotreba/pocetmereni*cas/3600
+stalo = prumernaspotreba*cena
+cas = Math.roundWithPrecision(cas/60, 2)
+
+console.log("Průměrná spotřeba je "+Math.roundWithPrecision(prumernaspotreba, 2)+" kWh")
+console.log("Pečení stálo " + Math.roundWithPrecision(stalo, 2)+" Kč")
+console.log("Pekli jsme "+cas+" minut")
